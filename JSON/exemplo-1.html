@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Exemplo 1 </title>
+  </head>
+
+  <body>
+    <h1> Criando um JSON </h1>
+    <p>Aqui mostro como eh criado um JSON basico.</p>
+
+    <h2><u>Variaveis - JSON</u></h2>
+    <p>
+      <b>Numero</b> <br>
+      "ano": 2012
+    </p>
+
+    <p>
+      <b>String</b> <br>
+      "nome": "Anthony"
+    </p>
+
+    <p>
+      <b>Boolean</b> <br>
+      "status": true
+    </p>
+
+    <p>
+      <b>Array</b> <br>
+      ["SP", "RJ", "MG"]
+    </p>
+
+    <p>
+      <b>Matriz</b> <br>
+      [ [0, 1, 2], [3, 4, 5], [6, 7, 8] ]
+    </p>
+
+    <p>
+      <b>Objeto</b> <br>
+      { "nome": "Anthony", "idade": 19, "email":"anthony@github.com" }
+    </p>
+
+    <p id="dados"></p>
+
+    <script>
+      /*Aqui eh criado um texto que contem a estrutura de um "objeto"
+        {
+          "nome": "Anthony",
+          "idade": 19,
+          "email":"anthony@github.com"
+        }
+      */
+      var texto = '{ "nome": "Anthony", "idade": 19, "email":"anthony@github.com" }';
+
+      //Aqui eh criado o JSON com o nome "obj"
+      var obj = JSON.parse(texto);
+
+      /*
+      Older browsers without the support for the JavaScript function JSON.parse()
+      can use the eval() function to convert a JSON text into a JavaScript object:
+
+      var obj = eval ("(" + texto + ")");
+
+      The eval() function can compile and execute any JavaScript.
+      This represents a potential security problem. Try to avoid it.
+      */
+
+
+      /*Aqui eu pego o elemento no HTML que possui a
+        id "dados", no caso minha tag <p> e adiciono um
+        conteudo nela*/
+      document.getElementById("dados").innerHTML = "<h2> <u>Exemplo</u> </h2> " +
+                                                   "<b> Dados do Usuario: </b> <br>" +
+                                                   "Nome.: "   + obj.nome  + "<br>" +
+                                                   "Idade.: "  + obj.idade + "<br>" +
+                                                   "E-mail.: " + obj.email + "<br>";
+    </script>
+  </body>
+
+</html>

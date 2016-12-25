@@ -1,0 +1,23 @@
+h2{
+  border-bottom: 3px solid #0000cc;
+  color: #000066;
+  font-size: 30px;
+}
+
+table, th, td{
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+th{
+  color: white;
+  background-color: #000066;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}

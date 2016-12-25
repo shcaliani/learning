@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Exemplo 5 </title>
+
+    <style>
+      h2{
+        border-bottom: 3px solid #0000cc;
+        color: #000066;
+        font-size: 30px;
+      }
+
+      table, th, td{
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+
+      th{
+        color: white;
+        background-color: #000066;
+      }
+
+      table tr:nth-child(odd) {
+          background-color: #f1f1f1;
+      }
+      table tr:nth-child(even) {
+          background-color: #ffffff;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1> Exemplo 5 </h1>
+
+    <p> Neste exemplo eu converto os dados vindos de um banco de dados
+        para o JSON e os exibo.</p>
+
+    <h2>Lista de Contatos</h2>
+    <p id = "dados" > </p>
+
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "http://localhost/myRepo/JSON/exemplo-5.php";
+
+        xmlhttp.onreadystatechange=function(){
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            //A minha funcao recebe o resultado obtido pelo "responseText"
+            myFunction(xmlhttp.responseText);
+          }
+        }; //End function
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        function myFunction(response){
+          var obj = JSON.parse(response);
+          var saida = "<table> <tr><th>Nome</th> <th>E-mail</th> <th>Telefone</th></tr>";
+
+          for (var i = 0; i < obj.length; i++) {
+            saida += "<tr> <td>" + obj[i].nome     + "</td>" +
+                          "<td>" + obj[i].email    + "</td>" +
+                          "<td>" + obj[i].telefone + "</td> </tr>";
+          }
+
+          saida += "</table>";
+          document.getElementById("dados").innerHTML = saida;
+        }
+    </script>
+  </body>
+
+</html>

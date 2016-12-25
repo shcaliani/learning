@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  <head> <title> Exemplo 1 </title> </head>
+
+  <body>
+    <h1> Exemplo 1 </h1>
+    <p>Aqui mostro um AJAX que troca o texto do header, por um outro
+       armazenado em um arquivo ".txt".</p>
+
+    <div id = "demo"> <h2> Vou Mudar !!! </h2> </div>
+    <button type="button" onclick = "loadDoc()" > Click me! </button>
+
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "exemplo-1.txt";
+
+      function loadDoc(){
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            document.getElementById("demo").innerHTML = xmlhttp.responseText;
+          }
+        }; //End function
+
+        xmlhttp.open ("GET", url, true);
+        xmlhttp.send();
+
+      } //End function
+    </script>
+  </body>
+
+</html>

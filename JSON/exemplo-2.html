@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head> <title> Exemplo 2 </title> </head>
+
+  <body>
+    <h1> Criando um Array - JSON </h1>
+    <p> Aqui eu crio um JSON que possui um objeto que por sua vez
+        tem um array de objetos.</p>
+
+    <p id = dados> </p>
+
+    <script>
+      //Criando uma string com a estrutura do nosso objeto
+      var texto = '{ "dono": "Anthony", ' +
+                    '"contatos": [ { "nome": "Anthony", "idade": 19 }, ' +
+				                          '{ "nome": "Jose",    "idade": 21 }, ' +
+				                          '{ "nome": "Luis",    "idade": 19 } ] } ';
+
+      //Gerando JSON
+      var obj = JSON.parse(texto);
+
+      //Gerando a string de saída que será incorporada no html.
+      var saida = " <p> Contatos de <b>" + obj.dono + " </b> </p>";
+
+      for (var i = 0; i < obj.contatos.length; i++) {
+        saida += obj.contatos[i].nome + " - <b>" + obj.contatos[i].idade + " Anos </b><br>";
+      }
+
+      //Incorporando a string de saida no HTML
+      document.getElementById("dados").innerHTML = saida;
+
+    </script>
+
+  </body>
+</html>

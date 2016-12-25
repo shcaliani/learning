@@ -1,0 +1,21 @@
+** EXEMPLOS DO USO DE "JSON" **
+
+//
+// Exemplo 1 >> Criando um JSON basico;
+//
+
+//
+// Exemplo 2 >> JSON + (Objetos & Arrays);
+//
+
+//
+// Exemplo 3 >> Gerando uma lista de links, Obtendo dados de um arquivo ".txt";
+//
+
+//
+// Exemplo 4 >> Gerando uma lista de links, obtendo dados de um arquivo ".js";
+//
+
+//
+// Exemplo 5 >> Gerando uma tabela de contatos, obtendo dados do "banco de dados".
+//

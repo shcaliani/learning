@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Exemplo 2 </title>
+
+    <script>
+      //Função que tras o 'hint', caso tenha uma dica
+      function showHint(str){
+
+        if (str.length == 0){
+          document.getElementById("hint").innerHTML = "";
+          return;
+        }
+        else {
+          var xmlhttp = new XMLHttpRequest();
+          var url = "http://localhost/myRepo/AJAX/exemplo-2.php?q=";
+
+          xmlhttp.onreadystatechange = function (){
+            if (xmlhttp.readyState = 4 && xmlhttp.status == 200){
+              document.getElementById("hint").innerHTML = xmlhttp.responseText;
+            }
+          }
+
+          xmlhttp.open("GET", (url + str), true);
+          xmlhttp.send();
+        }
+      };// End-Function
+    </script>
+  </head>
+
+  <body>
+    <h1> Exemplo 2 </h1>
+    <p>Aqui mostro um AJAX que troca o texto do header, por um outro
+       armazenado em um arquivo ".txt".</p>
+
+    <p>
+      <b>Digite um nome:</b>
+      <form>
+        <input type="text" onkeyup="showHint(this.value)">
+      </form>
+    </p>
+
+    <p>Sugestoes.: <span id = "hint"> </span> </p>
+  </body>
+
+</html>

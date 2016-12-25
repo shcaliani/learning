@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head> <title> Exemplo 4 </title> </head>
+
+  <body>
+    <h1> Utilizando dados de Arquivos JS - JSON </h1>
+    <p> Aqui eu crio um JSON que possui um objeto que por sua vez
+        tem um array de objetos, porem este JSON eh Gerando
+        atraves do conteudo de um arquivo js.</p>
+
+    <p id = dados> </p>
+
+    <script>
+      //Função para gerar e incorporar os dados no HTML
+      function myFunction (array){
+        var saida = '<ul>';
+
+        for (var i = 0; i < array.length; i++) {
+          saida += '<li> <a href="' + array[i].url +'"> ' + array[i].site + '</a> </li>';
+        }
+        saida += '</ul>';
+
+        document.getElementById("dados").innerHTML = saida;
+      };//End function
+
+    </script>
+
+    <script src="exemplo-4.js"></script>
+  </body>
+</html>

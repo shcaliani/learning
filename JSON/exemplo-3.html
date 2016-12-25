@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head> <title> Exemplo 3 </title> </head>
+
+  <body>
+    <h1> Utilizando dados de Arquivos - JSON </h1>
+    <p> Aqui eu crio um JSON que possui um objeto que por sua vez
+        tem um array de objetos, porem este JSON eh Gerando
+        atraves do conteudo de um arquivo texto.</p>
+
+    <p id = dados> </p>
+
+    <script>
+
+      var xmlhttp = new XMLHttpRequest();
+      var url = "exemplo-3.txt"; //Caminho do meu arquivo
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+          //O "responseText" retorna a "string" do arquivo e então eu gero o JSON
+          var myArray = JSON.parse(xmlhttp.responseText);
+          //myArray eh um JSON pronto
+          myFunction(myArray);
+        }
+      };// End function
+
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+
+      //Função para gerar e incorporar os dados no HTML
+      function myFunction (array){
+        var saida = '<ul>';
+
+        for (var i = 0; i < array.length; i++) {
+          saida += '<li> <a href="' + array[i].url +'"> ' + array[i].site + '</a> </li>';
+        }
+        saida += '</ul>';
+
+        document.getElementById("dados").innerHTML = saida;
+      }//End function
+
+    </script>
+
+  </body>
+</html>
